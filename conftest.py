@@ -15,7 +15,6 @@ def app(request):
 
 
 # (scope='session') - one fixture for all test in session,
-# example: one time  browser starts for all tests
 @pytest.fixture(scope='session', autouse=True)  # without autouse browser won't close
 def stop(request):
     def fin():
@@ -24,11 +23,8 @@ def stop(request):
     return fixture
 
 
-# parameters to run tests
 # py.test --browser=chrome test_... to run test in different browser from CLI
 # or Edit Configurations > Options > --browser=chrome in PyCharm
-# to be able to run tests in chrome or ie you need files chromdriver and iedriverserver added to PATH
-# put them in python folder for example, command "set path" in cmd
 def pytest_addoption(parser):  # pytest method to hook options
     parser.addoption('--browser', action='store', default='firefox')
 
