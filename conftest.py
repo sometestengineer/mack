@@ -14,7 +14,7 @@ def app(request):
     return fixture
 
 
-# (scope='session') - one fixture for all test in session,
+# (scope='session') - one fixture for all tests in session,
 @pytest.fixture(scope='session', autouse=True)  # without autouse browser won't close
 def stop(request):
     def fin():

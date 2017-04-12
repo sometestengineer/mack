@@ -19,7 +19,7 @@ def test_discount_checkout(app):
     assert float(before_discount_price) > float(total_price[1:])
 
 
-# test_3 check if discount delivered by url works on buy now page
+# test_3 checking if discount delivered by url works on buy now page
 def test_discount_buy_now_page(app):
     app.open_buy_now_page_with_params()
     app.buy.scroll_page_down()
@@ -28,7 +28,7 @@ def test_discount_buy_now_page(app):
     assert discount == True
 
 
-# test_4 check if discount coupon passing through discount field works on buy now page
+# test_4 checking if discount coupon passed through discount field works on buy now page
 def test_discount_coupon_buy_now_page(app):
     app.open_buy_now_page()
     app.buy.scroll_page_down()
@@ -39,9 +39,8 @@ def test_discount_coupon_buy_now_page(app):
     assert (float(full_price[1:])) > float(total_price[1:])
 
 
-# test_5 check if "print of discount" is on buy now page, passing printOfDiscount in url
+# test_5 checking if "print of discount" is on buy now page, passing printOfDiscount in url
 def test_print_of_discount_buy_now_page(app):
-    # app.open_buy_now_abel_page()
     app.open_buy_now_page_with_params()
     app.buy.click_print_of_discount_on_buy_page()
     app.buy.scroll_page_up()

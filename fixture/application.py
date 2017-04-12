@@ -17,7 +17,6 @@ class Application:
             raise ValueError('Unrecognized browser %s' % browser)
 
         self.wd.implicitly_wait(5)  # needed when page loads dynamically, when element appear on page later
-
         self.buy = BuyPage(self)
         self.shop = ShopPage(self)
 
@@ -32,14 +31,12 @@ class Application:
         self.wd.get('http://mackeeper.com/buy-now-abel')
 
     def open_buy_now_page_with_params(self):
-        
         params = {
             "lang": "en",
             "affid": "123123123",
             "couponcode": "lam4ik_test",
             "printOfDiscount": "discount5"
         }
-        
         get_params = urllib.urlencode(params)
         self.wd.get('http://mackeeper.com/buy-now-abel?%s' % get_params)
 
